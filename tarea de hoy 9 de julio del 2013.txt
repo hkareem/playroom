@@ -1,0 +1,7 @@
+tarea 
+buscar en la hoja de datos los timer del pick 16f887.
+
+hacer ejercicios 3 y 4 del libro aprendiendo C.
+
+traer un progrma que tooglee un led,  cada 100 milisegundos utilizando la interrupcion del timer 0.
+
