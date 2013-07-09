@@ -1,0 +1,60 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+005     puertoA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+021     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000018  @cinit1
+000018  main
+00002A  @cinit2
+
+Project Directory:
+    C:\Users\p6\Desktop\kareem\dia2\
+
+Project Files:
+    leds.c                                                  [25-jun-13 11:28  CRC=1BEB10B8]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h [03-jun-13 09:31  CRC=9FD133B5]
+
+Source signature=5B8D7822
+
+Units:
+    leds (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+Output Files:
+    XREF file:   leds.xsym
+    Errors:      leds.err
+    Ext Symbols: leds.esym
+    INHX8:       leds.hex
+    Symbols:     leds.sym
+    List:        leds.lst
+    Debug/COFF:  leds.cof
+    Project:     leds.ccspjt
+    Call Tree:   leds.tre
+    Statistics:  leds.STA

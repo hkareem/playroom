@@ -1,0 +1,26 @@
+#include <16f887.h>
+#FUSES INTRC_IO
+#USE delay (clock=8000000)
+#include <lcd.c>
+
+int8 lee_microsw(void);
+
+void main(void)
+{  
+    init();
+    
+    while(1)
+    {
+        dato = lee_dato();
+        dato_procesado = procesa_dato(dato);
+        despliega(dato_procesado);
+    
+    }
+
+}
+
+
+int8 lee_microsw(void)
+{
+
+}

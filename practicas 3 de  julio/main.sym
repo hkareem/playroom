@@ -1,0 +1,110 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     lcd
+008     lcdlat
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     i
+021     valor
+022     leds
+023     numeros
+024     @TRIS_C
+025     MAIN.valorAnalogo
+026     lcd_init.i
+026     @PRINTF_U_646.P1
+026-02D lee_microsw.entrada
+026     MAIN.@SCRATCH1
+026     @PSTRINGC7_646.@SCRATCH1
+027     @PRINTF_U_646.P1
+027     lcd_init.@SCRATCH1
+027     @PSTRINGC7_646.@SCRATCH2
+028     @DIV88.P1
+028     @PSTRINGC7_646.@SCRATCH3
+029     @DIV88.P1
+029     @PSTRINGC7_646.@SCRATCH4
+02A     lcd_putc.c
+02A     @DIV88.@SCRATCH1
+02B     @delay_ms1.P1
+02B     lcd_gotoxy.x
+02C     lcd_gotoxy.y
+02D     lcd_gotoxy.address
+02E     lee_microsw.valor
+02E     lcd_gotoxy.@SCRATCH1
+02F     lcd_send_byte.address
+02F     lee_microsw.@SCRATCH1
+030     lcd_send_byte.n
+031     lcd_read_byte.low
+031     lcd_send_byte.@SCRATCH1
+032     lcd_read_byte.high
+032     lcd_send_nibble.n
+033     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  @const670.call
+00000D  @delay_ms1
+000021  lcd_send_nibble
+00002E  lcd_read_nibble
+000034  lcd_send_byte
+00003A  lcd_read_byte
+000074  lcd_init
+0000A7  lcd_gotoxy
+0000B9  lcd_putc
+0000E5  @PSTRINGC7_646
+000132  lee_microsw
+00018B  @DIV88
+0001A0  @PRINTF_U_646
+0001D7  @cinit1
+0001D7  MAIN
+0001F6  @cinit2
+
+Project Directory:
+    C:\Users\p2\Desktop\kareem\practicas 3 de  julio\
+
+Project Files:
+    main.c                                                  [03-jul-13 12:18  CRC=5FB08078]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f887.h [03-jun-13 09:31  CRC=9FD133B5]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [23-ago-12 09:01  CRC=D28E8746]
+
+Source signature=A49EC2B9
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

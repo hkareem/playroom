@@ -1,0 +1,37 @@
+crear propias funciones lcd_init y lcd_putc.
+
+
+ejercicio:
+realizar una funcion suma, que acepte 3 parametros: el 1 parametro es el valor del primer operando, el segundo parametro es el valor del segundo operando y el tercer parametro es la direccion en donde se almacenara el resultado.
+
+tarea:
+trasladar la funcion suma_arr al compilador ccs,   y escribir un programa que permita acceseder 4 valores dentro de un arreglo. los valores se van a accesar mediante el potenciometro y los microswhitch va a desplegar en el display el valor asignado a cada elemento del arreglo y la suma de esos valores.
+
+y traer los ejercicios del primer, segundo y tercer 
+
+
+#include <stdio.h>
+
+void suma_arr(int *arr, int size);
+
+int main (void)
+{   
+    int i;
+    int array[]= {1,2,3,4,5,6,7,10,10};
+    i = suma(&array[0], sizeof(array)/sizeof(array[0]));
+    printf("%d\n",i);
+    
+    system("PAUSE");
+}
+
+int suma_arr(int *arr, int size)
+{
+     int x,  sum = 0;
+     for(x=0;x<size;x++)
+     {
+        sum = sum + *arr;
+        arr++;                
+     }
+    
+    return sum;
+}

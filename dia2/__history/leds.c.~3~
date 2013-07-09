@@ -1,0 +1,6 @@
+#INCLUDE <16f887.h>
+#fuses INTRC_IO
+#use delay (clock=8000000)
+
+void main (void)
+

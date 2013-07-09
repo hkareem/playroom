@@ -1,0 +1,204 @@
+CCS PCM C Compiler, Version 5.005d, 1               02-jul-13 12:26
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\Desktop\kareem\practicas 2 dejulio\main.lst
+
+               ROM used:   160 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   8 (2%) at main() level
+                           12 (3%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   069
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+0004:  MOVF   25,W
+0005:  CLRF   78
+0006:  SUBWF  24,W
+0007:  BTFSC  03.0
+0008:  GOTO   00C
+0009:  MOVF   24,W
+000A:  MOVWF  77
+000B:  GOTO   018
+000C:  CLRF   77
+000D:  MOVLW  08
+000E:  MOVWF  26
+000F:  RLF    24,F
+0010:  RLF    77,F
+0011:  MOVF   25,W
+0012:  SUBWF  77,W
+0013:  BTFSC  03.0
+0014:  MOVWF  77
+0015:  RLF    78,F
+0016:  DECFSZ 26,F
+0017:  GOTO   00F
+0018:  RETURN
+0019:  MOVF   78,W
+001A:  MOVF   22,W
+001B:  MOVWF  24
+001C:  MOVLW  64
+001D:  MOVWF  25
+001E:  CALL   004
+001F:  MOVF   77,W
+0020:  MOVWF  22
+0021:  MOVF   78,W
+0022:  MOVLW  30
+0023:  BTFSS  03.2
+0024:  GOTO   02C
+0025:  BTFSS  23.1
+0026:  GOTO   034
+0027:  BTFSC  23.3
+0028:  GOTO   034
+0029:  BTFSC  23.4
+002A:  MOVLW  20
+002B:  GOTO   02F
+002C:  BCF    23.3
+002D:  BCF    23.4
+002E:  BSF    23.0
+002F:  ADDWF  78,F
+0030:  MOVF   78,W
+0031:  BTFSS  0C.4
+0032:  GOTO   031
+0033:  MOVWF  19
+0034:  MOVF   22,W
+0035:  MOVWF  24
+0036:  MOVLW  0A
+0037:  MOVWF  25
+0038:  CALL   004
+0039:  MOVF   77,W
+003A:  MOVWF  22
+003B:  MOVF   78,W
+003C:  MOVLW  30
+003D:  BTFSS  03.2
+003E:  GOTO   045
+003F:  BTFSC  23.3
+0040:  GOTO   04A
+0041:  BTFSS  23.0
+0042:  GOTO   04A
+0043:  BTFSC  23.4
+0044:  MOVLW  20
+0045:  ADDWF  78,F
+0046:  MOVF   78,W
+0047:  BTFSS  0C.4
+0048:  GOTO   047
+0049:  MOVWF  19
+004A:  MOVLW  30
+004B:  ADDWF  22,F
+004C:  MOVF   22,W
+004D:  BTFSS  0C.4
+004E:  GOTO   04D
+004F:  MOVWF  19
+0050:  BCF    0A.3
+0051:  BCF    0A.4
+0052:  GOTO   092 (RETURN)
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+0053:  MOVLW  23
+0054:  MOVWF  04
+0055:  BCF    03.7
+0056:  MOVF   00,W
+0057:  BTFSC  03.2
+0058:  GOTO   066
+0059:  MOVLW  02
+005A:  MOVWF  78
+005B:  CLRF   77
+005C:  DECFSZ 77,F
+005D:  GOTO   05C
+005E:  DECFSZ 78,F
+005F:  GOTO   05B
+0060:  MOVLW  97
+0061:  MOVWF  77
+0062:  DECFSZ 77,F
+0063:  GOTO   062
+0064:  DECFSZ 00,F
+0065:  GOTO   059
+0066:  BCF    0A.3
+0067:  BCF    0A.4
+0068:  GOTO   09B (RETURN)
+.................... #use rs232(baud=9600, parity=N, xmit=PIN_C6, rcv=PIN_C7, bits=8)// esto nos servira para decidir la velocidad de la transmision de los datos. 
+.................... // parity=N esto es paridad sirve para detectara fallas 
+.................... int i=0; 
+.................... int valor; 
+.................... void main (void) 
+0069:  MOVLW  71
+006A:  BSF    03.5
+006B:  MOVWF  0F
+006C:  MOVF   0F,W
+006D:  BSF    03.6
+006E:  BCF    07.3
+006F:  MOVLW  0C
+0070:  BCF    03.6
+0071:  MOVWF  19
+0072:  MOVLW  A2
+0073:  MOVWF  18
+0074:  MOVLW  90
+0075:  BCF    03.5
+0076:  MOVWF  18
+0077:  CLRF   20
+0078:  BSF    03.5
+0079:  BSF    03.6
+007A:  MOVF   09,W
+007B:  ANDLW  C0
+007C:  MOVWF  09
+007D:  BCF    03.6
+007E:  BCF    1F.4
+007F:  BCF    1F.5
+0080:  MOVLW  00
+0081:  BSF    03.6
+0082:  MOVWF  08
+0083:  BCF    03.5
+0084:  CLRF   07
+0085:  CLRF   08
+0086:  CLRF   09
+0087:  BCF    03.7
+0088:  MOVLW  1F
+0089:  ANDWF  03,F
+....................    { 
+....................        while(1) 
+....................         
+....................          {  
+....................            valor = i; 
+008A:  BCF    03.6
+008B:  MOVF   20,W
+008C:  MOVWF  21
+....................            
+....................            printf("%u\n",valor); 
+008D:  MOVF   21,W
+008E:  MOVWF  22
+008F:  MOVLW  1B
+0090:  MOVWF  23
+0091:  GOTO   019
+0092:  MOVLW  0A
+0093:  BTFSS  0C.4
+0094:  GOTO   093
+0095:  MOVWF  19
+....................            delay_ms(1000); 
+0096:  MOVLW  04
+0097:  MOVWF  22
+0098:  MOVLW  FA
+0099:  MOVWF  23
+009A:  GOTO   053
+009B:  DECFSZ 22,F
+009C:  GOTO   098
+....................            i++; 
+009D:  INCF   20,F
+009E:  GOTO   08B
+....................            
+....................          } 
+....................     
+....................    } 
+009F:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

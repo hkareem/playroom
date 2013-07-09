@@ -1,0 +1,54 @@
+#include <16f887.h>
+#FUSES INTRC_IO
+#USE delay (clock=8000000)
+#include <lcd.c>
+
+int8 lee_microsw(void);
+
+void main(void)
+{  
+    lcd_init();
+    
+    while(1)
+    {
+        dato = lee_dato();
+        dato_procesado = procesa_dato(dato);
+        despliega(dato_procesado);
+    
+    }
+
+}
+
+
+int8 lee_microsw(void)
+{
+    int8 entrada [8];
+      int valor;
+    
+      
+      entrada[0] = input(PIN_C0);
+      entrada[1] = input(PIN_C1);
+      entrada[2] = input(PIN_C2);
+      entrada[3] = input(PIN_C3);
+      entrada[4] = input(PIN_C4);
+      entrada[5] = input(PIN_C5);
+      entrada[6] = input(PIN_E1);
+      entrada[7] = input(PIN_E2);
+      
+      valor = 0;
+       for(i=0;i<8;i++)
+{
+        
+         valor+= (entrada[i] << i);
+       
+}
+     
+      return valor;
+ 
+}
+
+ dato = lee_dato()
+ {  
+    int lee_dato;
+    lee_dato = lee_microsw;
+ }

@@ -1,0 +1,16 @@
+[PROJECT]
+Target=LCDpulsos.hex
+Processor_Text=PIC16F887
+CCSVersion=5.005d
+Compiler=PCM
+[Target Data]
+FileList=LCDpulsos.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[LCDpulsos.c]
+Type=4
+[mru-list]
+1=LCDpulsos.c
+[Units]
+Count=1
+1=LCDpulsos (main)

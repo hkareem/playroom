@@ -1,0 +1,8 @@
+>>> Warning 203 "hello.c" Line 10(1,1): Condition always TRUE
+*** Error 6 "hello.c" Line 23(27,28): String too long
+*** Error 79 "hello.c" Line 32(28,29): Expect }
+*** Error 79 "hello.c" Line 32(28,29): Expect }
+*** Error 79 "hello.c" Line 32(28,29): Expect }
+*** Error 79 "hello.c" Line 32(28,29): Expect }
+      5 Errors,  1 Warnings.
+Build Failed.

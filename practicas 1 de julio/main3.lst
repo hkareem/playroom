@@ -1,0 +1,242 @@
+CCS PCM C Compiler, Version 5.005d, 1               01-jul-13 12:24
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\Desktop\kareem\practicas 1 de julio\main3.lst
+
+               ROM used:   169 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   8 (2%) at main() level
+                           18 (5%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   074
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+*
+005E:  MOVLW  23
+005F:  MOVWF  04
+0060:  BCF    03.7
+0061:  MOVF   00,W
+0062:  BTFSC  03.2
+0063:  GOTO   071
+0064:  MOVLW  02
+0065:  MOVWF  78
+0066:  CLRF   77
+0067:  DECFSZ 77,F
+0068:  GOTO   067
+0069:  DECFSZ 78,F
+006A:  GOTO   066
+006B:  MOVLW  97
+006C:  MOVWF  77
+006D:  DECFSZ 77,F
+006E:  GOTO   06D
+006F:  DECFSZ 00,F
+0070:  GOTO   064
+0071:  BCF    0A.3
+0072:  BCF    0A.4
+0073:  GOTO   0A7 (RETURN)
+....................  
+.................... int8 lee_microsw(void); 
+.................... int i = 0; 
+.................... void main(void) 
+0074:  MOVLW  71
+0075:  BSF    03.5
+0076:  MOVWF  0F
+0077:  MOVF   0F,W
+0078:  BCF    03.5
+0079:  CLRF   20
+007A:  MOVLW  FF
+007B:  MOVWF  21
+007C:  BSF    03.5
+007D:  BSF    03.6
+007E:  MOVF   09,W
+007F:  ANDLW  C0
+0080:  MOVWF  09
+0081:  BCF    03.6
+0082:  BCF    1F.4
+0083:  BCF    1F.5
+0084:  MOVLW  00
+0085:  BSF    03.6
+0086:  MOVWF  08
+0087:  BCF    03.5
+0088:  CLRF   07
+0089:  CLRF   08
+008A:  CLRF   09
+008B:  BCF    03.7
+008C:  MOVLW  1F
+008D:  ANDWF  03,F
+....................    { 
+....................        int8 leds; 
+....................        set_tris_c(0xff); 
+008E:  MOVLW  FF
+008F:  BSF    03.5
+0090:  BCF    03.6
+0091:  MOVWF  07
+0092:  BCF    03.5
+0093:  MOVWF  21
+....................        set_tris_e(0xff); 
+0094:  BSF    03.5
+0095:  BSF    09.0
+0096:  BSF    09.1
+0097:  BSF    09.2
+0098:  BSF    09.3
+....................        set_tris_a(0); 
+0099:  MOVLW  00
+009A:  MOVWF  05
+....................         
+....................        
+....................        while(1) 
+....................         
+....................        { 
+....................            leds = lee_microsw(); 
+009B:  BCF    03.5
+009C:  GOTO   004
+009D:  MOVF   78,W
+009E:  MOVWF  22
+....................            output_a(leds); 
+009F:  BSF    03.5
+00A0:  CLRF   05
+00A1:  BCF    03.5
+00A2:  MOVF   22,W
+00A3:  MOVWF  05
+....................            delay_ms(200); 
+00A4:  MOVLW  C8
+00A5:  MOVWF  23
+00A6:  GOTO   05E
+00A7:  GOTO   09C
+....................        } 
+....................    } 
+....................       
+00A8:  SLEEP
+....................    int8 lee_microsw(void) 
+*
+0004:  CLRF   2B
+....................    { 
+....................       int8 entrada [8]; 
+....................       int8 valor = 0; 
+....................        
+....................       entrada[0] = input(PIN_C0); 
+0005:  BSF    21.0
+0006:  MOVF   21,W
+0007:  BSF    03.5
+0008:  MOVWF  07
+0009:  BCF    03.5
+000A:  CLRF   23
+000B:  BTFSC  07.0
+000C:  INCF   23,F
+....................       entrada[1] = input(PIN_C1); 
+000D:  BSF    21.1
+000E:  MOVF   21,W
+000F:  BSF    03.5
+0010:  MOVWF  07
+0011:  BCF    03.5
+0012:  CLRF   24
+0013:  BTFSC  07.1
+0014:  INCF   24,F
+....................       entrada[2] = input(PIN_C2); 
+0015:  BSF    21.2
+0016:  MOVF   21,W
+0017:  BSF    03.5
+0018:  MOVWF  07
+0019:  BCF    03.5
+001A:  CLRF   25
+001B:  BTFSC  07.2
+001C:  INCF   25,F
+....................       entrada[3] = input(PIN_C3); 
+001D:  BSF    21.3
+001E:  MOVF   21,W
+001F:  BSF    03.5
+0020:  MOVWF  07
+0021:  BCF    03.5
+0022:  CLRF   26
+0023:  BTFSC  07.3
+0024:  INCF   26,F
+....................       entrada[4] = input(PIN_C4); 
+0025:  BSF    21.4
+0026:  MOVF   21,W
+0027:  BSF    03.5
+0028:  MOVWF  07
+0029:  BCF    03.5
+002A:  CLRF   27
+002B:  BTFSC  07.4
+002C:  INCF   27,F
+....................       entrada[5] = input(PIN_C5); 
+002D:  BSF    21.5
+002E:  MOVF   21,W
+002F:  BSF    03.5
+0030:  MOVWF  07
+0031:  BCF    03.5
+0032:  CLRF   28
+0033:  BTFSC  07.5
+0034:  INCF   28,F
+....................       entrada[6] = input(PIN_E1); 
+0035:  BSF    03.5
+0036:  BSF    09.1
+0037:  BCF    03.5
+0038:  CLRF   29
+0039:  BTFSC  09.1
+003A:  INCF   29,F
+....................       entrada[7] = input(PIN_E2); 
+003B:  BSF    03.5
+003C:  BSF    09.2
+003D:  BCF    03.5
+003E:  CLRF   2A
+003F:  BTFSC  09.2
+0040:  INCF   2A,F
+....................        
+....................       valor = 0; 
+0041:  CLRF   2B
+....................        for(i=0;i<8;i++) 
+0042:  CLRF   20
+0043:  MOVF   20,W
+0044:  SUBLW  07
+0045:  BTFSS  03.0
+0046:  GOTO   059
+....................        { 
+....................          
+....................          valor+= (entrada[i] << i); 
+0047:  MOVLW  23
+0048:  ADDWF  20,W
+0049:  MOVWF  04
+004A:  BCF    03.7
+004B:  MOVF   00,W
+004C:  MOVWF  77
+004D:  MOVF   20,W
+004E:  MOVWF  78
+004F:  BTFSC  03.2
+0050:  GOTO   055
+0051:  BCF    03.0
+0052:  RLF    77,F
+0053:  DECFSZ 78,F
+0054:  GOTO   051
+0055:  MOVF   77,W
+0056:  ADDWF  2B,F
+0057:  INCF   20,F
+0058:  GOTO   043
+....................         
+....................        } 
+....................       
+....................       return valor; 
+0059:  MOVF   2B,W
+005A:  MOVWF  78
+005B:  BCF    0A.3
+005C:  BCF    0A.4
+005D:  GOTO   09D (RETURN)
+....................      
+....................    } 
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

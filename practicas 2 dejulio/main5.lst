@@ -1,0 +1,377 @@
+CCS PCM C Compiler, Version 5.005d, 1               03-jul-13 11:01
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\Desktop\kareem\practicas 2 dejulio\main5.lst
+
+               ROM used:   283 words (3%)
+                           Largest free fragment is 2048
+               RAM used:   9 (2%) at main() level
+                           19 (5%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   0BC
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+*
+005B:  MOVF   27,W
+005C:  CLRF   78
+005D:  SUBWF  26,W
+005E:  BTFSC  03.0
+005F:  GOTO   063
+0060:  MOVF   26,W
+0061:  MOVWF  77
+0062:  GOTO   06F
+0063:  CLRF   77
+0064:  MOVLW  08
+0065:  MOVWF  28
+0066:  RLF    26,F
+0067:  RLF    77,F
+0068:  MOVF   27,W
+0069:  SUBWF  77,W
+006A:  BTFSC  03.0
+006B:  MOVWF  77
+006C:  RLF    78,F
+006D:  DECFSZ 28,F
+006E:  GOTO   066
+006F:  RETURN
+0070:  MOVF   78,W
+0071:  MOVF   24,W
+0072:  MOVWF  26
+0073:  MOVLW  64
+0074:  MOVWF  27
+0075:  CALL   05B
+0076:  MOVF   77,W
+0077:  MOVWF  24
+0078:  MOVF   78,W
+0079:  MOVLW  30
+007A:  BTFSS  03.2
+007B:  GOTO   083
+007C:  BTFSS  25.1
+007D:  GOTO   08B
+007E:  BTFSC  25.3
+007F:  GOTO   08B
+0080:  BTFSC  25.4
+0081:  MOVLW  20
+0082:  GOTO   086
+0083:  BCF    25.3
+0084:  BCF    25.4
+0085:  BSF    25.0
+0086:  ADDWF  78,F
+0087:  MOVF   78,W
+0088:  BTFSS  0C.4
+0089:  GOTO   088
+008A:  MOVWF  19
+008B:  MOVF   24,W
+008C:  MOVWF  26
+008D:  MOVLW  0A
+008E:  MOVWF  27
+008F:  CALL   05B
+0090:  MOVF   77,W
+0091:  MOVWF  24
+0092:  MOVF   78,W
+0093:  MOVLW  30
+0094:  BTFSS  03.2
+0095:  GOTO   09C
+0096:  BTFSC  25.3
+0097:  GOTO   0A1
+0098:  BTFSS  25.0
+0099:  GOTO   0A1
+009A:  BTFSC  25.4
+009B:  MOVLW  20
+009C:  ADDWF  78,F
+009D:  MOVF   78,W
+009E:  BTFSS  0C.4
+009F:  GOTO   09E
+00A0:  MOVWF  19
+00A1:  MOVLW  30
+00A2:  ADDWF  24,F
+00A3:  MOVF   24,W
+00A4:  BTFSS  0C.4
+00A5:  GOTO   0A4
+00A6:  MOVWF  19
+00A7:  RETURN
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+00A8:  MOVLW  24
+00A9:  MOVWF  04
+00AA:  BCF    03.7
+00AB:  MOVF   00,W
+00AC:  BTFSC  03.2
+00AD:  GOTO   0BB
+00AE:  MOVLW  02
+00AF:  MOVWF  78
+00B0:  CLRF   77
+00B1:  DECFSZ 77,F
+00B2:  GOTO   0B1
+00B3:  DECFSZ 78,F
+00B4:  GOTO   0B0
+00B5:  MOVLW  97
+00B6:  MOVWF  77
+00B7:  DECFSZ 77,F
+00B8:  GOTO   0B7
+00B9:  DECFSZ 00,F
+00BA:  GOTO   0AE
+00BB:  RETURN
+.................... #use rs232(baud=9600, parity=N, xmit=PIN_C6, rcv=PIN_C7, bits=8)// esto nos servira para decidir la velocidad de la transmision de los datos. 
+.................... // parity=N esto es paridad sirve para detectara fallas 
+....................  
+.................... int i=0; 
+.................... int valor; 
+.................... int8 lee_microsw(void); 
+.................... int leds; 
+.................... void main (void) 
+00BC:  MOVLW  71
+00BD:  BSF    03.5
+00BE:  MOVWF  0F
+00BF:  MOVF   0F,W
+00C0:  BSF    03.6
+00C1:  BCF    07.3
+00C2:  MOVLW  0C
+00C3:  BCF    03.6
+00C4:  MOVWF  19
+00C5:  MOVLW  A2
+00C6:  MOVWF  18
+00C7:  MOVLW  90
+00C8:  BCF    03.5
+00C9:  MOVWF  18
+00CA:  CLRF   20
+00CB:  MOVLW  FF
+00CC:  MOVWF  23
+00CD:  BSF    03.5
+00CE:  BSF    03.6
+00CF:  MOVF   09,W
+00D0:  ANDLW  C0
+00D1:  MOVWF  09
+00D2:  BCF    03.6
+00D3:  BCF    1F.4
+00D4:  BCF    1F.5
+00D5:  MOVLW  00
+00D6:  BSF    03.6
+00D7:  MOVWF  08
+00D8:  BCF    03.5
+00D9:  CLRF   07
+00DA:  CLRF   08
+00DB:  CLRF   09
+00DC:  BCF    03.7
+00DD:  MOVLW  1F
+00DE:  ANDWF  03,F
+....................    { 
+....................     
+....................        set_tris_c(0xff); 
+00DF:  MOVLW  FF
+00E0:  BSF    03.5
+00E1:  BCF    03.6
+00E2:  MOVWF  07
+00E3:  BCF    03.5
+00E4:  MOVWF  23
+....................        set_tris_e(0xff); 
+00E5:  BSF    03.5
+00E6:  BSF    09.0
+00E7:  BSF    09.1
+00E8:  BSF    09.2
+00E9:  BSF    09.3
+....................         
+....................        while(1) 
+....................         
+....................          {  
+....................            leds = lee_microsw(); 
+00EA:  BCF    03.5
+00EB:  CALL   004
+00EC:  MOVF   78,W
+00ED:  MOVWF  22
+....................            output_a(leds); 
+00EE:  BSF    03.5
+00EF:  CLRF   05
+00F0:  BCF    03.5
+00F1:  MOVF   22,W
+00F2:  MOVWF  05
+....................            printf("%u\n",leds);     
+00F3:  MOVF   22,W
+00F4:  MOVWF  24
+00F5:  MOVLW  1B
+00F6:  MOVWF  25
+00F7:  CALL   070
+00F8:  MOVLW  0A
+00F9:  BTFSS  0C.4
+00FA:  GOTO   0F9
+00FB:  MOVWF  19
+....................            delay_ms(200); 
+00FC:  MOVLW  C8
+00FD:  MOVWF  24
+00FE:  CALL   0A8
+....................             
+....................           if(leds==valor) 
+00FF:  MOVF   21,W
+0100:  SUBWF  22,W
+0101:  BTFSS  03.2
+0102:  GOTO   107
+....................             { 
+....................               valor=lee_microsw(); 
+0103:  CALL   004
+0104:  MOVF   78,W
+0105:  MOVWF  21
+....................             } 
+0106:  GOTO   116
+....................            else 
+....................             { 
+....................               valor=lee_microsw(); 
+0107:  CALL   004
+0108:  MOVF   78,W
+0109:  MOVWF  21
+....................               leds = lee_microsw(); 
+010A:  CALL   004
+010B:  MOVF   78,W
+010C:  MOVWF  22
+....................               printf("%u\n",leds);     
+010D:  MOVF   22,W
+010E:  MOVWF  24
+010F:  MOVLW  1B
+0110:  MOVWF  25
+0111:  CALL   070
+0112:  MOVLW  0A
+0113:  BTFSS  0C.4
+0114:  GOTO   113
+0115:  MOVWF  19
+....................                
+....................             } 
+....................              delay_ms(200); 
+0116:  MOVLW  C8
+0117:  MOVWF  24
+0118:  CALL   0A8
+0119:  GOTO   0EB
+....................          } 
+....................     
+....................    } 
+....................     
+011A:  SLEEP
+....................     int8 lee_microsw(void) 
+....................    { 
+....................       int8 entrada [8]; 
+....................       int valor; 
+....................      
+....................        
+....................       entrada[0] = input(PIN_C0); 
+*
+0004:  BSF    23.0
+0005:  MOVF   23,W
+0006:  BSF    03.5
+0007:  MOVWF  07
+0008:  BCF    03.5
+0009:  CLRF   24
+000A:  BTFSC  07.0
+000B:  INCF   24,F
+....................       entrada[1] = input(PIN_C1); 
+000C:  BSF    23.1
+000D:  MOVF   23,W
+000E:  BSF    03.5
+000F:  MOVWF  07
+0010:  BCF    03.5
+0011:  CLRF   25
+0012:  BTFSC  07.1
+0013:  INCF   25,F
+....................       entrada[2] = input(PIN_C2); 
+0014:  BSF    23.2
+0015:  MOVF   23,W
+0016:  BSF    03.5
+0017:  MOVWF  07
+0018:  BCF    03.5
+0019:  CLRF   26
+001A:  BTFSC  07.2
+001B:  INCF   26,F
+....................       entrada[3] = input(PIN_C3); 
+001C:  BSF    23.3
+001D:  MOVF   23,W
+001E:  BSF    03.5
+001F:  MOVWF  07
+0020:  BCF    03.5
+0021:  CLRF   27
+0022:  BTFSC  07.3
+0023:  INCF   27,F
+....................       entrada[4] = input(PIN_C4); 
+0024:  BSF    23.4
+0025:  MOVF   23,W
+0026:  BSF    03.5
+0027:  MOVWF  07
+0028:  BCF    03.5
+0029:  CLRF   28
+002A:  BTFSC  07.4
+002B:  INCF   28,F
+....................       entrada[5] = input(PIN_C5); 
+002C:  BSF    23.5
+002D:  MOVF   23,W
+002E:  BSF    03.5
+002F:  MOVWF  07
+0030:  BCF    03.5
+0031:  CLRF   29
+0032:  BTFSC  07.5
+0033:  INCF   29,F
+....................       entrada[6] = input(PIN_E1); 
+0034:  BSF    03.5
+0035:  BSF    09.1
+0036:  BCF    03.5
+0037:  CLRF   2A
+0038:  BTFSC  09.1
+0039:  INCF   2A,F
+....................       entrada[7] = input(PIN_E2); 
+003A:  BSF    03.5
+003B:  BSF    09.2
+003C:  BCF    03.5
+003D:  CLRF   2B
+003E:  BTFSC  09.2
+003F:  INCF   2B,F
+....................        
+....................       valor = 0; 
+0040:  CLRF   2C
+....................        for(i=0;i<8;i++) 
+0041:  CLRF   20
+0042:  MOVF   20,W
+0043:  SUBLW  07
+0044:  BTFSS  03.0
+0045:  GOTO   058
+....................        { 
+....................          
+....................          valor+= (entrada[i] << i); 
+0046:  MOVLW  24
+0047:  ADDWF  20,W
+0048:  MOVWF  04
+0049:  BCF    03.7
+004A:  MOVF   00,W
+004B:  MOVWF  77
+004C:  MOVF   20,W
+004D:  MOVWF  78
+004E:  BTFSC  03.2
+004F:  GOTO   054
+0050:  BCF    03.0
+0051:  RLF    77,F
+0052:  DECFSZ 78,F
+0053:  GOTO   050
+0054:  MOVF   77,W
+0055:  ADDWF  2C,F
+0056:  INCF   20,F
+0057:  GOTO   042
+....................         
+....................        } 
+....................       
+....................       return valor; 
+0058:  MOVF   2C,W
+0059:  MOVWF  78
+005A:  RETURN
+....................        
+....................       
+....................       
+....................      
+....................    } 
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

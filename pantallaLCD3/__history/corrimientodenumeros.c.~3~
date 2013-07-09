@@ -1,0 +1,20 @@
+#include  <16f887.h>
+#fuses INTRC_IO
+#use delay (clock=8000000)
+#include <lcd.c>
+
+void main (void)
+   {
+      int8 pulsos = 0;
+      lcd_init(); // es para decir que vas a utilizar las dos lineas del LCD entre otras cosas
+      printf(lcd_putc, "%5u", pulsos);
+      while(1)
+         {
+         
+        printf( lcd_putc, "%5u", pulsos);
+        delay_ms(200);
+        pulsos++++;
+        lcd_putc("\f"); 
+            
+         }
+   }

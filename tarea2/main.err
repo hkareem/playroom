@@ -1,0 +1,8 @@
+*** Error 18 "main.c" Line 1(9,19): File can not be opened
+    Not in "C:\Program Files (x86)\PICC\Devices\pic16f88"
+    Not in "C:\Program Files (x86)\PICC\Drivers\pic16f88"
+    Not in project "C:\Users\p2\Desktop\kareem\tarea2\pic16f88"
+*** Error 128 "main.c" Line 2(7,16): A #DEVICE required before this line
+*** Error 128 "main.c" Line 3(5,8): A #DEVICE required before this line
+      3 Errors,  0 Warnings.
+Build Failed.

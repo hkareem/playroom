@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main (void)
+	{
+          unsigned char x,y,z;
+
+          x=6;
+          y=7;
+          
+          z= x!=
+
+	}

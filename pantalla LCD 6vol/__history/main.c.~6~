@@ -1,0 +1,28 @@
+#include  <16f887.h>
+#fuses INTRC_IO
+#use delay (clock=8000000)
+#include <lcd.c>
+int valorAnalogo;
+float volt,
+
+void main (void)
+   {
+      set_tris_e(0xFF);
+      SETUP_ADC_PORTS (sAN5);
+      SET_ADC_CHANNEL(5);
+      setup_adc(ADC_CLOCK_DIV_32);
+      lcd_init();
+      
+      
+      while (1)
+     {
+                  
+        valorAnalogo = read_adc();
+        volt = valorAnalogo*.0.019
+        lcd_putc("\f");
+        printf (lcd_putc, "%u",volt);
+        delay_ms(1000);
+            
+         }
+   }
+   

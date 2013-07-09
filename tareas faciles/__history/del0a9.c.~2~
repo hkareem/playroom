@@ -1,0 +1,17 @@
+#include <pic16f887>
+#fuses INTRC_IO
+#use delay (clock=800000)
+int  pulsos;
+
+void main () 
+
+   {
+     lcd_init()
+   
+   }
+   
+   while (1)
+   {
+      pulsos++;
+      delay_ms(1000)
+   }

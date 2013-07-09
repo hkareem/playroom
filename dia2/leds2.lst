@@ -1,0 +1,139 @@
+CCS PCM C Compiler, Version 5.005d, 1               27-jun-13 12:13
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\Desktop\kareem\dia2\leds2.lst
+
+               ROM used:   81 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   5 (1%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+0004:  MOVLW  21
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  02
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  97
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... #byte puertoA = 0x05 
+.................... void main (void) 
+0018:  MOVLW  71
+0019:  BSF    03.5
+001A:  MOVWF  0F
+001B:  MOVF   0F,W
+001C:  BSF    03.6
+001D:  MOVF   09,W
+001E:  ANDLW  C0
+001F:  MOVWF  09
+0020:  BCF    03.6
+0021:  BCF    1F.4
+0022:  BCF    1F.5
+0023:  MOVLW  00
+0024:  BSF    03.6
+0025:  MOVWF  08
+0026:  BCF    03.5
+0027:  CLRF   07
+0028:  CLRF   08
+0029:  CLRF   09
+002A:  BCF    03.7
+002B:  MOVLW  1F
+002C:  ANDWF  03,F
+.................... { 
+....................    set_tris_a(0x00); 
+002D:  MOVLW  00
+002E:  BSF    03.5
+002F:  BCF    03.6
+0030:  MOVWF  05
+....................    puertoA = 1; // el = no es un igual sino una asignacion de valor 
+0031:  MOVLW  01
+0032:  BCF    03.5
+0033:  MOVWF  05
+....................     
+....................     
+....................    while(1) 
+....................    { 
+....................     while(puertoA != 128) // esto es una diferencia de valores 
+0034:  MOVF   05,W
+0035:  SUBLW  80
+0036:  BTFSC  03.2
+0037:  GOTO   042
+....................     { 
+....................        if(puertoA == 16) 
+0038:  MOVF   05,W
+0039:  SUBLW  10
+003A:  BTFSS  03.2
+003B:  GOTO   03F
+....................       { 
+....................        
+....................        delay_ms(200); 
+003C:  MOVLW  C8
+003D:  MOVWF  21
+003E:  CALL   004
+....................        } 
+....................        puertoA = puertoA    << 1; 
+003F:  BCF    03.0
+0040:  RLF    05,F
+0041:  GOTO   034
+....................     } 
+....................     
+....................       while(puertoA != 1) 
+0042:  DECFSZ 05,W
+0043:  GOTO   045
+0044:  GOTO   04F
+....................        
+....................       { 
+....................         if(puertoA !=16) 
+0045:  MOVF   05,W
+0046:  SUBLW  10
+0047:  BTFSC  03.2
+0048:  GOTO   04C
+....................         { 
+....................           
+....................          delay_ms(200); 
+0049:  MOVLW  C8
+004A:  MOVWF  21
+004B:  CALL   004
+....................       } 
+....................       puertoA = puertoA >> 1; 
+004C:  BCF    03.0
+004D:  RRF    05,F
+004E:  GOTO   042
+....................      } 
+004F:  GOTO   034
+....................    } 
+.................... } 
+....................  
+0050:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

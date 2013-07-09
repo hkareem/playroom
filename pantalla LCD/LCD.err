@@ -1,0 +1,4 @@
+>>> Warning 203 "LCD.c" Line 11(1,1): Condition always TRUE
+      Memory usage:   ROM=4%      RAM=1% - 5%
+      0 Errors,  1 Warnings.
+Build Successful.

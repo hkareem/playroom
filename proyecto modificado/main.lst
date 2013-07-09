@@ -1,0 +1,107 @@
+CCS PCM C Compiler, Version 5.005d, 1               25-jun-13 10:51
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p6\Desktop\kareem\proyecto modificado\main.lst
+
+               ROM used:   67 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   5 (1%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #USE delay(clock=8000000) 
+0004:  MOVLW  21
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  02
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  97
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... void main(void) 
+0018:  MOVLW  71
+0019:  BSF    03.5
+001A:  MOVWF  0F
+001B:  MOVF   0F,W
+001C:  BSF    03.6
+001D:  MOVF   09,W
+001E:  ANDLW  C0
+001F:  MOVWF  09
+0020:  BCF    03.6
+0021:  BCF    1F.4
+0022:  BCF    1F.5
+0023:  MOVLW  00
+0024:  BSF    03.6
+0025:  MOVWF  08
+0026:  BCF    03.5
+0027:  CLRF   07
+0028:  CLRF   08
+0029:  CLRF   09
+002A:  BCF    03.7
+002B:  MOVLW  1F
+002C:  ANDWF  03,F
+.................... { 
+....................    set_tris_a(0x00);  
+002D:  MOVLW  00
+002E:  BSF    03.5
+002F:  BCF    03.6
+0030:  MOVWF  05
+....................     
+....................    for(;;) 
+....................    { 
+....................    output_a(0b10101010); 
+0031:  CLRF   05
+0032:  MOVLW  AA
+0033:  BCF    03.5
+0034:  MOVWF  05
+....................    delay_ms(200); 
+0035:  MOVLW  C8
+0036:  MOVWF  21
+0037:  CALL   004
+....................    output_a(0b01010101); 
+0038:  BSF    03.5
+0039:  CLRF   05
+003A:  MOVLW  55
+003B:  BCF    03.5
+003C:  MOVWF  05
+....................    delay_ms(200); 
+003D:  MOVLW  C8
+003E:  MOVWF  21
+003F:  CALL   004
+0040:  BSF    03.5
+0041:  GOTO   031
+....................    } 
+....................     
+....................  
+.................... } 
+0042:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

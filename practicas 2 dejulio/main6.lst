@@ -1,0 +1,282 @@
+CCS PCM C Compiler, Version 5.005d, 1               02-jul-13 13:00
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\Desktop\kareem\practicas 2 dejulio\main6.lst
+
+               ROM used:   237 words (3%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           11 (3%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   0B5
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+0004:  DATA 8A,22
+0005:  DATA 4C,10
+0006:  DATA E3,30
+0007:  DATA F2,30
+0008:  DATA 63,3A
+0009:  DATA 65,39
+000A:  DATA A0,32
+000B:  DATA 73,1D
+000C:  DATA A0,12
+000D:  DATA 75,00
+000E:  MOVF   0B,W
+000F:  MOVWF  23
+0010:  BCF    0B.7
+0011:  BSF    03.5
+0012:  BSF    03.6
+0013:  BSF    0C.7
+0014:  BSF    0C.0
+0015:  NOP
+0016:  NOP
+0017:  BTFSC  03.0
+0018:  GOTO   041
+0019:  BCF    03.5
+001A:  MOVF   0C,W
+001B:  ANDLW  7F
+001C:  BCF    03.6
+001D:  MOVWF  24
+001E:  BSF    03.6
+001F:  MOVF   0D,W
+0020:  BCF    03.6
+0021:  MOVWF  25
+0022:  BSF    03.6
+0023:  MOVF   0F,W
+0024:  BCF    03.6
+0025:  MOVWF  26
+0026:  MOVF   24,W
+0027:  BTFSS  0C.4
+0028:  GOTO   027
+0029:  MOVWF  19
+002A:  MOVF   25,W
+002B:  BSF    03.6
+002C:  MOVWF  0D
+002D:  BCF    03.6
+002E:  MOVF   26,W
+002F:  BSF    03.6
+0030:  MOVWF  0F
+0031:  BSF    03.5
+0032:  BSF    0C.7
+0033:  BSF    0C.0
+0034:  NOP
+0035:  NOP
+0036:  BCF    03.5
+0037:  BCF    03.6
+0038:  DECFSZ 22,F
+0039:  GOTO   03B
+003A:  GOTO   03E
+003B:  BSF    03.5
+003C:  BSF    03.6
+003D:  GOTO   041
+003E:  GOTO   061
+003F:  BSF    03.5
+0040:  BSF    03.6
+0041:  BCF    03.5
+0042:  RLF    0C,W
+0043:  RLF    0E,W
+0044:  ANDLW  7F
+0045:  BCF    03.6
+0046:  MOVWF  24
+0047:  BSF    03.6
+0048:  MOVF   0D,W
+0049:  BCF    03.6
+004A:  MOVWF  25
+004B:  BSF    03.6
+004C:  MOVF   0F,W
+004D:  BCF    03.6
+004E:  MOVWF  26
+004F:  MOVF   24,W
+0050:  BTFSS  0C.4
+0051:  GOTO   050
+0052:  MOVWF  19
+0053:  MOVF   25,W
+0054:  BSF    03.6
+0055:  MOVWF  0D
+0056:  BCF    03.6
+0057:  MOVF   26,W
+0058:  BSF    03.6
+0059:  MOVWF  0F
+005A:  INCF   0D,F
+005B:  BTFSC  03.2
+005C:  INCF   0F,F
+005D:  BCF    03.0
+005E:  BCF    03.6
+005F:  DECFSZ 22,F
+0060:  GOTO   011
+0061:  BTFSC  23.7
+0062:  BSF    0B.7
+0063:  BCF    0A.3
+0064:  BCF    0A.4
+0065:  GOTO   0E6 (RETURN)
+0066:  MOVF   25,W
+0067:  CLRF   78
+0068:  SUBWF  24,W
+0069:  BTFSC  03.0
+006A:  GOTO   06E
+006B:  MOVF   24,W
+006C:  MOVWF  77
+006D:  GOTO   07A
+006E:  CLRF   77
+006F:  MOVLW  08
+0070:  MOVWF  26
+0071:  RLF    24,F
+0072:  RLF    77,F
+0073:  MOVF   25,W
+0074:  SUBWF  77,W
+0075:  BTFSC  03.0
+0076:  MOVWF  77
+0077:  RLF    78,F
+0078:  DECFSZ 26,F
+0079:  GOTO   071
+007A:  RETURN
+007B:  MOVF   78,W
+007C:  MOVF   22,W
+007D:  MOVWF  24
+007E:  MOVLW  64
+007F:  MOVWF  25
+0080:  CALL   066
+0081:  MOVF   77,W
+0082:  MOVWF  22
+0083:  MOVF   78,W
+0084:  MOVLW  30
+0085:  BTFSS  03.2
+0086:  GOTO   08E
+0087:  BTFSS  23.1
+0088:  GOTO   096
+0089:  BTFSC  23.3
+008A:  GOTO   096
+008B:  BTFSC  23.4
+008C:  MOVLW  20
+008D:  GOTO   091
+008E:  BCF    23.3
+008F:  BCF    23.4
+0090:  BSF    23.0
+0091:  ADDWF  78,F
+0092:  MOVF   78,W
+0093:  BTFSS  0C.4
+0094:  GOTO   093
+0095:  MOVWF  19
+0096:  MOVF   22,W
+0097:  MOVWF  24
+0098:  MOVLW  0A
+0099:  MOVWF  25
+009A:  CALL   066
+009B:  MOVF   77,W
+009C:  MOVWF  22
+009D:  MOVF   78,W
+009E:  MOVLW  30
+009F:  BTFSS  03.2
+00A0:  GOTO   0A7
+00A1:  BTFSC  23.3
+00A2:  GOTO   0AC
+00A3:  BTFSS  23.0
+00A4:  GOTO   0AC
+00A5:  BTFSC  23.4
+00A6:  MOVLW  20
+00A7:  ADDWF  78,F
+00A8:  MOVF   78,W
+00A9:  BTFSS  0C.4
+00AA:  GOTO   0A9
+00AB:  MOVWF  19
+00AC:  MOVLW  30
+00AD:  ADDWF  22,F
+00AE:  MOVF   22,W
+00AF:  BTFSS  0C.4
+00B0:  GOTO   0AF
+00B1:  MOVWF  19
+00B2:  BCF    0A.3
+00B3:  BCF    0A.4
+00B4:  GOTO   0EB (RETURN)
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+.................... #use rs232(baud=9600, parity=N, xmit=PIN_C6, rcv=PIN_C7, bits=8)// esto nos servira para decidir la velocidad de la transmision de los datos. 
+.................... // parity=N esto es paridad sirve para detectara fallas 
+....................  
+.................... void main (void) 
+00B5:  MOVLW  71
+00B6:  BSF    03.5
+00B7:  MOVWF  0F
+00B8:  MOVF   0F,W
+00B9:  BSF    03.6
+00BA:  BCF    07.3
+00BB:  MOVLW  0C
+00BC:  BCF    03.6
+00BD:  MOVWF  19
+00BE:  MOVLW  A2
+00BF:  MOVWF  18
+00C0:  MOVLW  90
+00C1:  BCF    03.5
+00C2:  MOVWF  18
+00C3:  BSF    03.5
+00C4:  BSF    03.6
+00C5:  MOVF   09,W
+00C6:  ANDLW  C0
+00C7:  MOVWF  09
+00C8:  BCF    03.6
+00C9:  BCF    1F.4
+00CA:  BCF    1F.5
+00CB:  MOVLW  00
+00CC:  BSF    03.6
+00CD:  MOVWF  08
+00CE:  BCF    03.5
+00CF:  CLRF   07
+00D0:  CLRF   08
+00D1:  CLRF   09
+00D2:  BCF    03.7
+00D3:  MOVLW  1F
+00D4:  ANDWF  03,F
+....................    { 
+....................     int8 c; 
+....................        while(1) 
+....................         
+....................          {  
+....................            if(kbhit()) 
+00D5:  BCF    03.6
+00D6:  BTFSS  0C.5
+00D7:  GOTO   0EB
+....................             { 
+....................                    c=getc(); 
+00D8:  BTFSS  0C.5
+00D9:  GOTO   0D8
+00DA:  MOVF   1A,W
+00DB:  MOVWF  21
+....................                    printf("\nEL caracter es: %u",c); 
+00DC:  MOVLW  04
+00DD:  BSF    03.6
+00DE:  MOVWF  0D
+00DF:  MOVLW  00
+00E0:  MOVWF  0F
+00E1:  BCF    03.0
+00E2:  MOVLW  11
+00E3:  BCF    03.6
+00E4:  MOVWF  22
+00E5:  GOTO   00E
+00E6:  MOVF   21,W
+00E7:  MOVWF  22
+00E8:  MOVLW  1B
+00E9:  MOVWF  23
+00EA:  GOTO   07B
+....................                   
+....................             } 
+00EB:  GOTO   0D6
+....................            
+....................          } 
+....................     
+....................    } 
+00EC:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

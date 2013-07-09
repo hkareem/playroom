@@ -1,0 +1,180 @@
+CCS PCM C Compiler, Version 5.005d, 1               25-jun-13 13:08
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p6\Desktop\kareem\aprendiendo a usar el pot en el 16f887\pot.lst
+
+               ROM used:   117 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           7 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   01A
+0003:  NOP
+.................... #include  <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #fuses INTRC_IO 
+.................... #use delay (clock=8000000) 
+0004:  MOVLW  22
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  02
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  97
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  BCF    0A.3
+0018:  BCF    0A.4
+0019:  GOTO   073 (RETURN)
+.................... #byte puertoA = 0x05 
+....................  
+.................... void main () 
+001A:  MOVLW  71
+001B:  BSF    03.5
+001C:  MOVWF  0F
+001D:  MOVF   0F,W
+001E:  BSF    03.6
+001F:  MOVF   09,W
+0020:  ANDLW  C0
+0021:  MOVWF  09
+0022:  BCF    03.6
+0023:  BCF    1F.4
+0024:  BCF    1F.5
+0025:  MOVLW  00
+0026:  BSF    03.6
+0027:  MOVWF  08
+0028:  BCF    03.5
+0029:  CLRF   07
+002A:  CLRF   08
+002B:  CLRF   09
+002C:  BCF    03.7
+002D:  MOVLW  1F
+002E:  ANDWF  03,F
+002F:  BCF    03.6
+0030:  CLRF   21
+....................  
+.................... {   
+....................    int8 valorAnalogo = 0; 
+....................     
+....................    set_tris_a(0);//configurado como salida 
+0031:  MOVLW  00
+0032:  BSF    03.5
+0033:  MOVWF  05
+....................    set_tris_e(1); //configurado como entrada 
+0034:  BSF    09.0
+0035:  BCF    09.1
+0036:  BCF    09.2
+0037:  BCF    09.3
+....................    SETUP_ADC_PORTS(sAN5); // este pin es analogo 
+0038:  BSF    03.6
+0039:  MOVF   09,W
+003A:  ANDLW  C0
+003B:  MOVWF  09
+003C:  BCF    03.6
+003D:  BCF    1F.4
+003E:  BCF    1F.5
+003F:  MOVLW  20
+0040:  BSF    03.6
+0041:  MOVWF  08
+....................    SET_ADC_CHANNEL(5); // el canal que usaremos y de cual obtendremos la señal es el 5 
+0042:  MOVLW  14
+0043:  MOVWF  78
+0044:  BCF    03.5
+0045:  BCF    03.6
+0046:  MOVF   1F,W
+0047:  ANDLW  C3
+0048:  IORWF  78,W
+0049:  MOVWF  1F
+....................    setup_adc(ADC_CLOCK_DIV_32); 
+004A:  BCF    1F.6
+004B:  BSF    1F.7
+004C:  BSF    03.5
+004D:  BCF    1F.7
+004E:  BCF    03.5
+004F:  BSF    1F.0
+....................     
+....................    
+....................    while(1) 
+....................   
+....................     
+....................    { 
+....................      valorAnalogo = read_adc(); // asignanado una variable 
+0050:  BSF    1F.1
+0051:  BTFSC  1F.1
+0052:  GOTO   051
+0053:  MOVF   1E,W
+0054:  MOVWF  21
+....................      if ((valorAnalogo >= 100) && (valorAnalogo <=150)) // esta operacion es una and logica 
+0055:  MOVF   21,W
+0056:  SUBLW  63
+0057:  BTFSC  03.0
+0058:  GOTO   067
+0059:  MOVF   21,W
+005A:  SUBLW  96
+005B:  BTFSS  03.0
+005C:  GOTO   067
+....................      { 
+....................         if(valorAnalogo <=150) 
+005D:  MOVF   21,W
+005E:  SUBLW  96
+005F:  BTFSS  03.0
+0060:  GOTO   066
+....................         { 
+....................           output_a(0xff); 
+0061:  BSF    03.5
+0062:  CLRF   05
+0063:  MOVLW  FF
+0064:  BCF    03.5
+0065:  MOVWF  05
+....................         } 
+....................       
+....................      } 
+0066:  GOTO   06B
+....................       else 
+....................       { 
+....................        output_a(0x00); 
+0067:  BSF    03.5
+0068:  CLRF   05
+0069:  BCF    03.5
+006A:  CLRF   05
+....................       } 
+....................      output_a(valorAnalogo); 
+006B:  BSF    03.5
+006C:  CLRF   05
+006D:  BCF    03.5
+006E:  MOVF   21,W
+006F:  MOVWF  05
+....................      delay_ms(100); 
+0070:  MOVLW  64
+0071:  MOVWF  22
+0072:  GOTO   004
+0073:  GOTO   050
+....................     } 
+....................    
+.................... } 
+....................  
+0074:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE4   INTRC_IO NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

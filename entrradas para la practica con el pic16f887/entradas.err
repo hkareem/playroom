@@ -1,0 +1,4 @@
+>>> Warning 203 "entradas.c" Line 13(1,1): Condition always TRUE
+*** Error 51 "entradas.c" Line 23(19,23): A numeric expression must appear here
+      1 Errors,  1 Warnings.
+Build Failed.

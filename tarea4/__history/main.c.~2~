@@ -1,0 +1,19 @@
+#include<pic16f887>
+#fuses INTRC_IO
+#use delay(clock=8000000)
+#include <lcd.c>
+int num;
+int num2;
+int sum;
+
+void main()
+suma = num +num2
+   {
+      lcd_init();
+      printf(lcd_putc,"%u+%u=%u",num,num2,sum);
+      
+      while(1)
+         {
+         
+         }
+   }
