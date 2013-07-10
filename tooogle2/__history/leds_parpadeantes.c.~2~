@@ -1,0 +1,15 @@
+#include <16f887.h>
+#use delay (clock=8000000)
+
+
+void main(void)
+{
+  while(1)
+  {
+  
+  }
+}
+
+
+
+

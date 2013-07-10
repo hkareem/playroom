@@ -1,0 +1,74 @@
+CCS PCB C Compiler, Version 5.005d, 1               10-jul-13 12:50
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\kareem\GitHub\playroom\pic12f510\primer_practica.lst
+
+               ROM used:   35 words (3%)
+                           Largest free fragment is 512
+               RAM used:   5 (23%) at main() level
+                           6 (27%) worst case
+               Stack used: 0 locations
+               Stack size: 2
+
+*
+0000:  GOTO   014
+0001:  GOTO   002
+.................... #include <12f510.h> 
+.................... //////// Standard Header file for the PIC12F510 device //////////////// 
+.................... #device PIC12F510 
+....................  
+.................... #list 
+....................  
+....................  
+.................... #use delay (clock=8000000) 
+0002:  MOVF   0F,W
+0003:  BTFSC  03.2
+0004:  GOTO   012
+0005:  MOVLW  02
+0006:  MOVWF  0B
+0007:  CLRF   0A
+0008:  DECFSZ 0A,F
+0009:  GOTO   008
+000A:  DECFSZ 0B,F
+000B:  GOTO   007
+000C:  MOVLW  97
+000D:  MOVWF  0A
+000E:  DECFSZ 0A,F
+000F:  GOTO   00E
+0010:  DECFSZ 0F,F
+0011:  GOTO   005
+0012:  BCF    03.5
+0013:  GOTO   023 (RETURN)
+.................... #BYTE B = 0x06 
+....................  
+.................... void main(void) 
+0014:  MOVLW  FF
+0015:  MOVWF  0E
+0016:  BCF    08.6
+0017:  BCF    08.7
+.................... { 
+....................    set_tris_b(0x00); 
+0018:  MOVLW  00
+0019:  TRIS   6
+001A:  MOVWF  0E
+....................     
+....................    while(1) 
+....................    { 
+....................      output_b(0b000001); 
+001B:  MOVLW  00
+001C:  MOVWF  0E
+001D:  TRIS   6
+001E:  MOVLW  01
+001F:  MOVWF  06
+....................      delay_ms(200); 
+0020:  MOVLW  C8
+0021:  MOVWF  0F
+0022:  GOTO   001
+0023:  GOTO   01B
+....................    } 
+.................... } 
+0024:  SLEEP
+
+Configuration Fuses:
+   Word  1: 0FFB   RC NOWDT NOPROTECT MCLR IOSC8

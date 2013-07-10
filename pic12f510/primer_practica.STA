@@ -1,0 +1,45 @@
+
+ROM used:   35/1024 (3%)
+            35/1024 (3%) including unused fragments
+
+            0.1 Average locations per line
+            7.0 Average locations per statement
+
+RAM used:   5/22 (23%) at main() level
+            6/22 (27%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 2
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   16     5 100  primer_practica.c
+  402     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\12f510.h
+----- -----
+  418     5 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     18  51    1             @delay_ms1
+0     17  49    0    72  1.6  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              5
+    Comments                66
+    Volume (V)              76
+    Difficulty (D)          1.3
+    Effort to implement (E) 101
+    Time to implement (T)   0 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    123
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-001FF    35  475  
+00200-003FF     0  512  
+
+
+

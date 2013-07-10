@@ -1,0 +1,73 @@
+CCS PCM C Compiler, Version 5.005d, 1               10-jul-13 12:53
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\kareem\GitHub\playroom\tooogle2\leds_parpadeantes.lst
+
+               ROM used:   27 words (0%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #use delay (clock=8000000) 
+.................... #include "timers.h" 
+.................... #define rojo  5 
+....................  
+.................... #include "timers.h" 
+.................... #define rojo  5 
+....................  
+....................  
+....................  
+.................... void main(void) 
+0004:  BSF    03.5
+0005:  BSF    03.6
+0006:  MOVF   09,W
+0007:  ANDLW  C0
+0008:  MOVWF  09
+0009:  BCF    03.6
+000A:  BCF    1F.4
+000B:  BCF    1F.5
+000C:  MOVLW  00
+000D:  BSF    03.6
+000E:  MOVWF  08
+000F:  BCF    03.5
+0010:  CLRF   07
+0011:  CLRF   08
+0012:  CLRF   09
+0013:  BCF    03.7
+0014:  MOVLW  1F
+0015:  ANDWF  03,F
+0016:  MOVLW  05
+0017:  BCF    03.6
+0018:  MOVWF  21
+.................... { 
+....................   int a = rojo;  
+....................     
+....................   while(1) 
+....................   { 
+0019:  GOTO   019
+....................    
+....................   } 
+.................... } 
+....................  
+001A:  SLEEP
+....................  
+....................  
+....................  
+
+Configuration Fuses:
+   Word  1: 2FE7   RC NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

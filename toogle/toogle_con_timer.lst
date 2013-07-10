@@ -1,0 +1,165 @@
+CCS PCM C Compiler, Version 5.005d, 1               10-jul-13 10:56
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+               Filename:   C:\Users\p2\kareem\GitHub\playroom\toogle\toogle_con_timer.lst
+
+               ROM used:   114 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   12 (3%) at main() level
+                           13 (4%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   04D
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  BTFSS  0B.5
+0018:  GOTO   01B
+0019:  BTFSC  0B.2
+001A:  GOTO   02C
+001B:  MOVF   22,W
+001C:  MOVWF  04
+001D:  MOVF   23,W
+001E:  MOVWF  77
+001F:  MOVF   24,W
+0020:  MOVWF  78
+0021:  MOVF   25,W
+0022:  MOVWF  79
+0023:  MOVF   26,W
+0024:  MOVWF  7A
+0025:  MOVF   20,W
+0026:  MOVWF  0A
+0027:  SWAPF  21,W
+0028:  MOVWF  03
+0029:  SWAPF  7F,F
+002A:  SWAPF  7F,W
+002B:  RETFIE
+002C:  BCF    0A.3
+002D:  BCF    0A.4
+002E:  GOTO   02F
+.................... #include <16f887.h> 
+.................... //////// Standard Header file for the PIC16F887 device //////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #use delay (clock=8000000) 
+*
+0037:  MOVLW  27
+0038:  MOVWF  04
+0039:  BCF    03.7
+003A:  MOVF   00,W
+003B:  BTFSC  03.2
+003C:  GOTO   04A
+003D:  MOVLW  02
+003E:  MOVWF  78
+003F:  CLRF   77
+0040:  DECFSZ 77,F
+0041:  GOTO   040
+0042:  DECFSZ 78,F
+0043:  GOTO   03F
+0044:  MOVLW  97
+0045:  MOVWF  77
+0046:  DECFSZ 77,F
+0047:  GOTO   046
+0048:  DECFSZ 00,F
+0049:  GOTO   03D
+004A:  BCF    0A.3
+004B:  BCF    0A.4
+004C:  GOTO   06E (RETURN)
+.................... #BYTE puertoA=0x05 
+.................... #int_timer0 
+....................  
+.................... void timer_isr(void) 
+.................... { 
+....................    puertoA = puertoA ^ (1<<3); 
+*
+002F:  MOVLW  08
+0030:  XORWF  05,F
+....................    set_timer0(127); 
+0031:  MOVLW  7F
+0032:  MOVWF  01
+0033:  BCF    0B.2
+0034:  BCF    0A.3
+0035:  BCF    0A.4
+0036:  GOTO   01B
+.................... } 
+....................  
+.................... void main (void) 
+*
+004D:  BSF    03.5
+004E:  BSF    03.6
+004F:  MOVF   09,W
+0050:  ANDLW  C0
+0051:  MOVWF  09
+0052:  BCF    03.6
+0053:  BCF    1F.4
+0054:  BCF    1F.5
+0055:  MOVLW  00
+0056:  BSF    03.6
+0057:  MOVWF  08
+0058:  BCF    03.5
+0059:  CLRF   07
+005A:  CLRF   08
+005B:  CLRF   09
+005C:  BCF    03.7
+005D:  MOVLW  1F
+005E:  ANDWF  03,F
+.................... { 
+....................    setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256); 
+005F:  BSF    03.5
+0060:  BCF    03.6
+0061:  MOVF   01,W
+0062:  ANDLW  C0
+0063:  IORLW  07
+0064:  MOVWF  01
+....................    enable_interrupts(INT_TIMER0); 
+0065:  BCF    03.5
+0066:  BSF    0B.5
+....................    enable_interrupts(GLOBAL); 
+0067:  MOVLW  C0
+0068:  IORWF  0B,F
+....................     
+....................    set_timer0(127); 
+0069:  MOVLW  7F
+006A:  MOVWF  01
+....................  
+....................     while(1) 
+....................    { 
+....................       delay_ms(200); 
+006B:  MOVLW  C8
+006C:  MOVWF  27
+006D:  GOTO   037
+....................       puertoA = puertoA ^ (1<<5); 
+006E:  MOVLW  20
+006F:  XORWF  05,F
+0070:  GOTO   06B
+....................    }  
+.................... } 
+0071:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FE7   RC NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

@@ -1,0 +1,18 @@
+#include <16f887.h>
+#use delay (clock=8000000)
+#include "timers.h"
+
+
+void main(void)
+{
+  int a = rojo; 
+   
+  while(1)
+  {
+  
+  }
+}
+
+
+
+

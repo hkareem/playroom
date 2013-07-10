@@ -1,0 +1,50 @@
+006     B
+007.7   C1OUT
+00A     @SCRATCH
+00B     @SCRATCH
+00B     _RETURN_
+00C     @SCRATCH
+00D     @SCRATCH
+00E     @TRIS_B
+00F     @delay_ms1.P1
+
+ROM Allocation:
+000002  @delay_ms1
+000014  @cinit1
+000014  main
+000018  @cinit2
+
+Project Directory:
+    C:\Users\p2\kareem\GitHub\playroom\pic12f510\
+
+Project Files:
+    primer_practica.c                                       [10-jul-13 12:36  CRC=D872A938]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\12f510.h [03-jun-13 09:31  CRC=E7F7D255]
+
+Source signature=A8624DE2
+
+Units:
+    primer_practica (main)
+
+Compiler Settings:
+    Processor:      PIC12F510
+    Pointer Size:   5
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
+
+Output Files:
+    XREF file:   primer_practica.xsym
+    Errors:      primer_practica.err
+    Ext Symbols: primer_practica.esym
+    INHX8:       primer_practica.hex
+    Symbols:     primer_practica.sym
+    List:        primer_practica.lst
+    Debug/COFF:  primer_practica.cof
+    Project:     primer_practica.ccspjt
+    Call Tree:   primer_practica.tre
+    Statistics:  primer_practica.STA
