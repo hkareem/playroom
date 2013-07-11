@@ -1,0 +1,7 @@
+*** Error 18 "leds_parpadeantes.c" Line 3(10,17): File can not be opened
+    Not in project "C:\Users\p2\kareem\GitHub\playroom\tooogle2\proyecto\bsp.c"
+    Not in "C:\Program Files (x86)\PICC\Devices\bsp.c"
+    Not in "C:\Program Files (x86)\PICC\Drivers\bsp.c"
+*** Error 12 "leds_parpadeantes.c" Line 10(1,9): Undefined identifier   bsp_init
+      2 Errors,  0 Warnings.
+Build Failed.

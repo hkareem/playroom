@@ -1,0 +1,40 @@
+#ifndef _BSP_
+#define _BSP_
+
+ #byte puertoA =0x05
+
+
+void bsp_init(void)
+{
+set_tris_c (0xff);
+set_tris_e(0xff);
+}
+int8 bsp_microsw(void)
+{
+int8var;
+var = input(PIN_C0);
+var = var + (input(PIN_C2)*2);
+var = var + (input(PIN_C3)*4);
+var = var + (input(PIN_C4)*8);
+var = var + (input(PIN_C5)*16);
+var = var + (input(PIN_C5)*32);
+var = var + (input(PIN_C6)*64);
+var = var + (input(PIN_C7)*128);
+
+return var;
+}
+void bsp_leds(int8 leds)
+{
+output_a(leds);
+}
+void bsp_led_on(int8 led)
+{
+  puertoA = puertoA |  (1<<led);
+}
+void bsp_led_off(int8 led)
+{
+   puertoA = puertoA & (~(1<<led));
+}
+
+
+

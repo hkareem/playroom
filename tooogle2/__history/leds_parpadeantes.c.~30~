@@ -1,13 +1,14 @@
 #include <16f887.h>
 #use delay (clock=8000000)
+#fuses INTRC_IO
+#BYTE puertoA = 0x05
 #include "timers.c"
-#include "bsp.c"
+#include "BSP:c"
 
 
 
 void main(void)
 { 
-  int sw;
   bsp_init();
   timers_init(); 
   enable_interrupts(GLOBAL);

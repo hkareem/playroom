@@ -1,4 +1,1 @@
->>> Warning 203 "leds_parpadeantes.c" Line 11(1,1): Condition always TRUE
-*** Error 112 "leds_parpadeantes.c" Line 9(1,1): Function used but not defined:  ... timers_init  SCR=781
-      1 Errors,  1 Warnings.
-Build Failed.
+*** Error 100 "C:\Users\p2\kareem\GitHub\playroom\tooogle2\bsp.c" Line 7(9,68): USE parameter value is out of range   "BIT"

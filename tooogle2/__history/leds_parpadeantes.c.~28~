@@ -1,0 +1,39 @@
+#include <16f887.h>
+#use delay (clock=8000000)
+#fuses INTRC_IO
+#BYTE puertoA = 0x05
+#include "timers.c"
+#include "BSP:c"
+
+
+
+void main(void)
+{ 
+  set_tris_a(0x00);
+  timers_init(); 
+  enable_interrupts(GLOBAL);
+  
+  timers_set_time(2,_100ms);
+  
+   
+  while(1)
+  {
+    if(timers_get_time(2)== 0)
+    {
+       puertoA = puertoA ^ (1<<3);
+       puertoA = puertoA ^ (1<<4);
+       puertoA = puertoA ^ (1<<5);
+       timers_set_time(2,_100ms);
+    }
+    
+    if(timers_get_time(6)== 0)
+    {
+       puertoA = puertoA ^ (1<<6);//esta parte no me funciono checar porque no.
+       timers_set_time(6,_1s);
+    }
+  }
+}
+
+
+
+

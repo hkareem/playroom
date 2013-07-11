@@ -1,8 +1,7 @@
-D G "LCD_LINE_LENGTH" 4 187 "20"
-D G "__PCM__" 0 35 ""5.005d""
-D G "__DEVICE__" 0 35 "887"
-D G "__DATE__" 0 35 ""11-jul-13""
-D G "__TIME__" 0 35 ""12:41:12"" "Standard Header file for the PIC16F887 device ////////////////"
+D G "__PCM__" 0 21 ""5.005d""
+D G "__DEVICE__" 0 21 "887"
+D G "__DATE__" 0 21 ""10-jul-13""
+D G "__TIME__" 0 21 ""19:01:51"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 1 5 15 "FUNCTION"
 v L "value" 1 30 "int8" `54 
 f B "set_tris_a" 1 30 "void(int8 value)" `53 
@@ -848,96 +847,7 @@ d G "INT_RB4" 1 752 "0x1100B08"
 d G "INT_RB5" 1 753 "0x1200B08"
 d G "INT_RB6" 1 754 "0x1400B08"
 d G "INT_RB7" 1 755 "0x1800B08"
-D G "__TIMERS__" 2 2 ""
-D G "N_TIMERS" 2 4 "10"
-D G "_10ms" 2 5 "1"
-D G "_20ms" 2 6 "2"
-D G "_50ms" 2 7 "5"
-D G "_100ms" 2 8 "10"
-D G "_500ms" 2 9 "50"
-D G "_1s" 2 10 "100"
-D G "_2s" 2 11 "200"
-V G "gTimers" 2 13 "int8" `619 
-V G "aTimer" 2 14 "int8[10]" `620 
-F G "timers_init" 2 17 "void()" `621 
-V L "timer" 2 25 "int8" `623 
-V L "time" 2 25 "int8" `624 
-F G "timers_set_time" 2 26 "void(int8 timer,int8 time)" `622 
-V L "timer" 2 30 "int8" `626 
-F G "timers_get_time" 2 31 "int8(int8 timer)" `625 
-F G "timers_isr" 2 37 "void()" `627 
-D G "__BSP__" 3 2 ""
-D G "__LCD_C__" 4 76 ""
-T G "LCD_PIN_MAP" 4 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `634  "this is to improve compatability with previous LCD drivers that accepted"
-D G "lcd_output_enable" 4 109 "(x) lcdlat.enable=x"
-D G "lcd_enable_tris" 4 110 "()   lcdtris.enable=0"
-D G "lcd_output_rs" 4 117 "(x) lcdlat.rs=x"
-D G "lcd_rs_tris" 4 118 "()   lcdtris.rs=0"
-D G "lcd_output_rw" 4 125 "(x) lcdlat.rw=x"
-D G "lcd_rw_tris" 4 126 "()   lcdtris.rw=0"
-D G "LCD_DATA_PORT" 4 149 "getenv("SFR:PORTD")" "portd"
-V G "lcd" 4 161 "LCD_PIN_MAP" `635 
-V G "lcdlat" 4 161 "LCD_PIN_MAP" `636 
-V G "lcdtris" 4 161 "LCD_PIN_MAP" `637 
-D G "LCD_TYPE" 4 179 "2" "0=5x7, 1=5x10, 2=2 lines"
-D G "LCD_LINE_TWO" 4 183 "0x40" "LCD RAM address for the second line"
-D G "LCD_LINE_LENGTH" 4 187 "20"
-V G "LCD_INIT_STRING" 4 190 "[4]" `638 
-C L "lcd_read_nibble" 4 2 2 "FUNCTION"
-F G "lcd_read_nibble" 4 194 "int8()" `641 
-F G "lcd_read_byte" 4 197 "int8()" `642 
-V L "low" 4 198 "int8" `643 
-V L "high" 4 198 "int8" `644 
-F G "lcd_read_nibble" 4 244 "int8()" `641 
-V L "n" 4 260 "int8" `646 
-F G "lcd_send_nibble" 4 261 "void(int8 n)" `645 
-V L "address" 4 278 "int8" `648 
-V L "n" 4 278 "int8" `649 
-F G "lcd_send_byte" 4 279 "void(int8 address,int8 n)" `647 
-F G "lcd_init" 4 304 "void()" `650 
-V L "i" 4 305 "int8" `651 
-V L "x" 4 345 "int8" `653 
-V L "y" 4 345 "int8" `654 
-F G "lcd_gotoxy" 4 346 "void(int8 x,int8 y)" `652 
-V L "address" 4 347 "int8" `655 
-V L "c" 4 363 "int8" `657 
-F G "lcd_putc" 4 364 "void(int8 c)" `656 
-V L "x" 4 406 "int8" `659 
-V L "y" 4 406 "int8" `660 
-F G "lcd_getc" 4 407 "int8(int8 x,int8 y)" `658 
-V L "value" 4 408 "int8" `661 
-C L "lcd_getc" 4 2 1 "FUNCTION"
-C L "lcd_set_cgram_char" 4 2 5 "FUNCTION"
-V L "which" 4 424 "int8" `663 
-V L "ptr" 4 424 "*int8" `664 
-F G "lcd_set_cgram_char" 4 425 "void(int8 which,*int8 ptr)" `662 
-V L "i" 4 426 "int8" `665 
-C L "lcd_set_cgram_char" 4 2 1 "FUNCTION"
-V L "on" 4 443 "int8" `667 
-F G "lcd_cursor_on" 4 444 "void(int8 on)" `666 
-C L "lcd_cursor_on" 4 2 1 "FUNCTION"
-C L "lcd_cursor_on" 4 2 1 "FUNCTION"
-F G "bsp_init" 3 8 "void()" `668 
-C L "bsp_init" 3 13 1 "FUNCTION"
-C L "bsp_init" 3 13 1 "FUNCTION"
-C L "bsp_init" 3 13 1 "FUNCTION"
-C L "bsp_init" 3 13 1 "FUNCTION"
-F G "bsp_lee_sw" 3 23 "int8()" `670 
-V L "var" 3 24 "int8" `671 
-V L "sw" 3 36 "int8" `673 
-F G "bsp_lee_microsw" 3 37 "int8(int8 sw)" `672 
-V L "val" 3 38 "int8" `674 
-V L "led" 3 43 "int8" `676 
-F G "bsp_led_on" 3 44 "void(int8 led)" `675 
-V L "led" 3 48 "int8" `678 
-F G "bsp_led_off" 3 49 "void(int8 led)" `677 
-V L "val" 3 54 "int8" `680 
-F G "bsp_leds" 3 55 "void(int8 val)" `679 
-V L "led" 3 59 "int8" `682 
-F G "bsp_led_inv" 3 60 "void(int8 led)" `681 
-F G "bsp_lee_pot" 3 66 "int8()" `683 
-F G "MAIN" 0 11 "void()" `684 
-V L "x" 0 12 "int8" `685 
+F G "main" 0 8 "void()" `618 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

@@ -14,8 +14,7 @@
       int8 aTimer[N_TIMERS];
       
       void timers_init(void)
-      {     
-            
+      {
             setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
             enable_interrupts(INT_TIMER0);
             set_timer0(178);
@@ -35,6 +34,7 @@
       #int_timer0
       void timers_isr(void)
       {
+        puertoA = puertoA ^ (1<<7);
         set_timer0(178);
         while(gTimers)
         {
@@ -47,4 +47,3 @@
         gTimers=N_TIMERS;
       }
 #endif      
-

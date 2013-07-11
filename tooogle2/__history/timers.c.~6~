@@ -10,12 +10,11 @@
       #define _1s        100
       #define _2s        200
 
-      int8 gTimers = N_TIMERS;
+      int8 gtimers = N_TIMERS;
       int8 aTimer[N_TIMERS];
       
       void timers_init(void)
-      {     
-            
+      {
             setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
             enable_interrupts(INT_TIMER0);
             set_timer0(178);
@@ -38,7 +37,7 @@
         set_timer0(178);
         while(gTimers)
         {
-          gTimers--;
+          gtimers--;
           if(aTimer[gTimers]!= 0)
           {
              aTimer[gTimers]--;
@@ -47,4 +46,3 @@
         gTimers=N_TIMERS;
       }
 #endif      
-

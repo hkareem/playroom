@@ -1,5 +1,5 @@
 [Directories]
-Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Users\p2\kareem\GitHub\playroom\tooogle2\
+Include=
 Library=
 LinkerScript=
 [defines]
@@ -25,14 +25,11 @@ Target=leds_parpadeantes.hex
 Development_Mode=
 Processor_Text=PIC16F887
 ToolSuite=CCS
-CCSVersion=5.005d
-Compiler=PCM
 [Target Data]
 BuildTool=C-COMPILER
 OptionString=+FM
 AdditionalOptionString=
 BuildRequired=1
-FileList=leds_parpadeantes.c
 [leds_parpadeantes.c]
 Type=4
 Path=
@@ -44,19 +41,12 @@ AdditionalOptionString=
 1=leds_parpadeantes.c
 [Windows]
 0=0000 %S 0 0 796 451 3 0
-[Opened Files]
-1=leds_parpadeantes.c
-2=timers.c
-3=bsp.c
-4=
-5=
-[..\pieza de codigo reusable\BSP.c]
-Type=4
-Path=
-FileList=
-BuildTool=
-OptionString=
-AdditionalOptionString=
 [Units]
+Link=0
 Count=1
-1=leds_parpadeantes (main)
+1=leds_parpadeantes
+[Opened Files]
+1=..\..\..\..\..\Documents\c\proyectos joel\main.c
+2=..\..\..\..\..\Documents\c\proyectos joel\bsp.c
+3=
+4=

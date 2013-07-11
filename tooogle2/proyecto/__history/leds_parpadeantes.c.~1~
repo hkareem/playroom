@@ -1,0 +1,19 @@
+#include <16f887.h>
+#use delay (clock=8000000)
+#include "leds_parpadeantesbsp"
+
+
+
+void main(void)
+{
+int a =rojo;
+   
+  while(1)
+  {
+  
+  }
+}
+
+
+
+

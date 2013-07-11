@@ -15,10 +15,14 @@
       
       void timers_init(void)
       {     
-            
+            int8 i;
             setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256);
             enable_interrupts(INT_TIMER0);
             set_timer0(178);
+            for(i=0;i<N_TIMERS;i++)
+            {
+              aTimer[N_TIMERS] = 0;
+            }
             
       }
       
@@ -47,4 +51,3 @@
         gTimers=N_TIMERS;
       }
 #endif      
-
